@@ -1,52 +1,25 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <math.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int main() {
+    int p;
+    printf("Введіть кількість розрядів (p ≤ 30): ");
+    scanf("%d", &p);
 
-# Linker output
-*.ilk
-*.map
-*.exp
+    int result = 6;  // Початкове значення result
 
-# Precompiled Headers
-*.gch
-*.pch
+    if (p <= 1) {
+        result = 0;  // Якщо p менше або дорівнює 1, result = 0
+    }
+    else if (p == 2) {
+        result = 2;  // Якщо p = 2, result = 2
+    }
+    else {
+        for (int i = 0; i < p - 3; i++) {
+            result = result + 2 * pow(2, i);  // Обчислення result для p > 2
+        }
+    }
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+    printf("Result - %d\n", result);  // Виведення значення result
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+}
